@@ -1,0 +1,4 @@
+.chartcontainer {
+    width: var(--lwc-spacingXSmall, 0.5rem);
+    height: auto;
+}

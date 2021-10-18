@@ -1,0 +1,30 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="slds-box slds-theme_shade">
+        <lightning-input type="number" name="principal" label="Principal" onchange={handleNumberPChange} value={principleNumber}></lightning-input>
+        <lightning-input type="number" name="interest" step="0.001" label="Interest Rate" onchange={handleNumberIChange} value={interestNumber}></lightning-input>
+        <lightning-input type="number" name="months" label="Number of Months" onchange={handleNumberMChange} value={monthsNumber}></lightning-input>
+    </div>
+    <div class="slds-box slds-theme_shade">
+        <lightning-formatted-text value="Total Interest: " ></lightning-formatted-text>
+        <lightning-formatted-number value={totalInterest} label="Total Interest" format-style="currency" currency-code="USD"></lightning-formatted-number>
+        <p>
+            <lightning-formatted-text   value="Total Paid: " ></lightning-formatted-text>
+            <lightning-formatted-number value={totalPayment} format-style="currency" currency-code="USD"></lightning-formatted-number>
+        </p>
+    </div>
+    <div class="slds-box slds-theme_shade">
+        <lightning-button label="Calculate" onclick={calculate}> </lightning-button>
+    </div>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <canvas class="chart1" lwc:dom="manual"></canvas>
+        </div>
+        <div class="slds-col">
+            <canvas class="chart2" lwc:dom="manual"></canvas>
+        </div>    
+    </div>
+    <div class="slds-table slds-table_cell-buffer" style="height: 500px">
+        <lightning-datatable key-field={keyField} columns={columns} data={rows} hide-checkbox-column></lightning-datatable>
+    </div>
+</template>
